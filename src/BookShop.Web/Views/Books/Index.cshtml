@@ -1,0 +1,3 @@
+@model IReadOnlyList<ShopBook>
+@{ ViewData["Title"] = "Browse books"; }
+<section class="page-heading"><p class="eyebrow">THE BOOKSHELF</p><h1>Find your next favourite</h1><form class="search" method="get"><input name="q" value="@ViewBag.Query" placeholder="Search title, author or topic"/><button class="button">Search</button></form></section><div class="category-list"><a asp-action="Index">All books</a>@foreach(string c in (IEnumerable<string>)ViewBag.Categories){<a asp-action="Index" asp-route-category="@c">@c</a>}</div><partial name="_BookGrid" model="Model" />

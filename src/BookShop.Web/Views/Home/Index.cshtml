@@ -1,0 +1,5 @@
+@model IReadOnlyList<ShopBook>
+@{ ViewData["Title"] = "Books for every kind of reader"; }
+<section class="hero"><div class="hero-copy"><p class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</p><h1>Books for curious minds and quiet moments.</h1><p>Explore stories, practical guides and learning resources, all in one welcoming bookshop.</p><a class="button" asp-controller="Books" asp-action="Index">Explore the collection</a></div><div class="hero-art"><span>READ</span><span>LEARN</span><span>GROW</span></div></section>
+<section class="section-heading"><div><p class="eyebrow">HANDPICKED FOR YOU</p><h2>Featured books</h2></div><a asp-controller="Books" asp-action="Index">View all books →</a></section><partial name="_BookGrid" model="Model" />
+<section class="feature-strip"><div><b>Discover</b><span>Books across genres and subjects</span></div><div><b>Shop with ease</b><span>Your cart stays with you as you browse</span></div><div><b>Order securely</b><span>Simple checkout and order updates</span></div></section>

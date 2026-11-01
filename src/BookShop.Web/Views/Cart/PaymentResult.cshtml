@@ -1,0 +1,3 @@
+@model ShopOrder
+@{ ViewData["Title"]="Payment status"; }
+<section class="form-card narrow"><h1>Payment @Model.PaymentStatus</h1><p>Order @Model.Number · ₹@Model.Total.ToString("0.00")</p><p>We saved the gateway response and checked its signature before setting this status.</p><a class="button" asp-action="Confirmation" asp-route-id="@Model.Id">View order</a></section>

@@ -1,0 +1,33 @@
+name: Build and smoke test
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      - name: Restore
+        run: dotnet restore src/BookShop.Web/BookShop.Web.csproj
+      - name: Build
+        run: dotnet publish src/BookShop.Web/BookShop.Web.csproj -c Release -o src/BookShop.Web/bin/Release/net10.0/publish
+      - name: Start app and check shop pages
+        run: |
+          ASPNETCORE_URLS=http://127.0.0.1:5099 dotnet src/BookShop.Web/bin/Release/net10.0/publish/BookShop.Web.dll > /tmp/bookshop.log 2>&1 &
+          app_pid=$!
+          trap 'kill "$app_pid" 2>/dev/null || true' EXIT
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:5099/healthz >/dev/null; then break; fi
+            sleep 2
+          done
+          curl --fail --silent http://127.0.0.1:5099/healthz | grep 'ok'
+          curl --fail --silent http://127.0.0.1:5099/ | grep 'Featured books'
+          curl --fail --silent http://127.0.0.1:5099/books | grep 'Find your next favourite'

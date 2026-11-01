@@ -1,0 +1,3 @@
+@model Dictionary<string,string>
+@{ ViewData["Title"]="Continue to payment"; var action=Model["action"]; }
+<section class="form-card narrow"><h1>Continue to PayU</h1><p>You will be sent to PayU to complete your payment.</p><form id="payu" action="@action" method="post">@foreach(var item in Model.Where(x=>x.Key!="action")){<input type="hidden" name="@item.Key" value="@item.Value"/>}<button class="button">Continue securely</button></form></section><script>document.getElementById('payu').submit();</script>

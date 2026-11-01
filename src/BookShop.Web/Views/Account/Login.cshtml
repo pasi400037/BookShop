@@ -1,0 +1,3 @@
+@model LoginInput
+@{ ViewData["Title"]="Sign in"; }
+<section class="form-card narrow"><p class="eyebrow">WELCOME BACK</p><h1>Sign in</h1><form method="post"><div asp-validation-summary="ModelOnly" class="error"></div><input asp-for="ReturnUrl" type="hidden"/><label>Username or email<input asp-for="UserName" autocomplete="username"/></label><label>Password<input asp-for="Password" autocomplete="current-password"/></label><button class="button">Sign in</button></form><p>New here? <a asp-action="Register">Create an account</a></p></section>
