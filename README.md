@@ -32,5 +32,5 @@ The archive contains no SQL schema, database backup, or database data. The local
 
 ## Repository hygiene
 
-Generated Visual Studio state and build output are excluded. Application source, web pages, static assets, the Font Awesome icon library, and book images are retained. The repository archive is distributed as `BookShop-GitHub-Ready.zip`.
+Generated Visual Studio state and build output are excluded from the prepared project. The repository currently contains this setup documentation only; the full source archive has not been committed. The prepared archive is available separately as `BookShop-GitHub-Ready.zip`.
 
