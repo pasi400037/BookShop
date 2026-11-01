@@ -5,10 +5,10 @@
 *.user
 *.suo
 *.pdb
-*.db
-*.db-shm
-*.db-wal
-data/
+**/data/*.db
+**/data/*.db-shm
+**/data/*.db-wal
+**/data/uploads/
 
 # Local environment and secrets
 .env
