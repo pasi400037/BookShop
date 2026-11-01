@@ -1,0 +1,225 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="masterpage.master.cs" Inherits="BookShop.masterpage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+
+    <%--bootstrap-css--%>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <%--datatable-css--%>
+    <link href="datatable/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <%--fontawosme-css--%>
+    <link href="fontawesome/css/all.css" rel="stylesheet" />
+
+    <%--bootstrap-js--%>
+    <script src="bootstrap/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="bootstrap/js/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <%--datatable-js--%>
+    <script src="datatable/js/jquery.dataTables.min.js"></script>
+    <%--fontawesome-js--%>
+    <script src="fontawesome/js/all.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+           
+            
+        }
+
+        li a {
+            color: white;
+            width: 100px;
+            text-align: center;
+        }
+
+            li a:hover {
+                background-color: #34495E;
+                border-radius: 5px;
+            }
+
+        .DesignLinkbtn {
+            color: #000000;
+            text-decoration: none;
+        }
+
+            .DesignLinkbtn:hover {
+                color: orangered;
+            }
+            .find:hover{color:white}
+    </style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+
+    <form id="form1" runat="server">
+        <%--header1--%>
+
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    
+                    <div class="btn-group dropright">
+                        
+                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Register</button>
+                        <div class="dropdown-menu ">
+                            
+                            <asp:LinkButton class="p-3 DesignLinkbtn "  ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Login</asp:LinkButton>
+                            <asp:LinkButton class="p-3 DesignLinkbtn " ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Signup</asp:LinkButton>
+                            <asp:LinkButton class="p-3 DesignLinkbtn " ID="LinkButton3" runat="server" Visible="False" OnClick="LinkButton3_Click">Logout</asp:LinkButton>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+
+                <div class="col ">
+
+                    <asp:LinkButton class="p-3 DesignLinkbtn " ID="LinkButton7" runat="server" Visible="False">Hellow User</asp:LinkButton>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <%--header2--%>
+
+
+        <section>
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-success">
+                <asp:Label class="navbar-brand" ID="Label1" runat="server" Text=" BookShop " Font-Bold="True" Font-Names="Arial Black"></asp:Label>
+                <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon "></span>
+                </button>
+
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto  ">
+                        <li class="nav-item active">
+                            <a class="nav-link text-white p-1" href="Homepage.aspx"><i class="fas fa-home"></i>Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white p-1" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-book"></i>Cat.
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                <asp:LinkButton class="dropdown-item" ID="LinkButton8" OnClick="LinkButton8_Click" runat="server">Academic</asp:LinkButton>
+                                <asp:LinkButton class="dropdown-item" ID="LinkButton9" OnClick="LinkButton9_Click" runat="server">Action & Adventure</asp:LinkButton>
+                                <asp:LinkButton class="dropdown-item" ID="LinkButton10" OnClick="LinkButton10_Click" runat="server">Biograph</asp:LinkButton>
+                                <asp:LinkButton class="dropdown-item" ID="LinkButton11" OnClick="LinkButton11_Click" runat="server">Children's Books</asp:LinkButton>
+                                <asp:LinkButton class="dropdown-item" ID="LinkButton12" OnClick="LinkButton12_Click" runat="server">Computing & Internet</asp:LinkButton>
+                                <asp:LinkButton class="dropdown-item" ID="LinkButton13" OnClick="LinkButton13_Click" runat="server">Self & Help</asp:LinkButton>
+
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <asp:LinkButton class="dropdown-item" ID="LinkButton14" OnClick="LinkButton14_Click" runat="server" Font-Bold="True">All Books</asp:LinkButton>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white p-1" href="#"><i class="fas fa-info-circle"></i>About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white p-1 mr-1" href="#"><i class="far fa-life-ring"></i>Help</a>
+                        </li>
+
+                    </ul>
+                    <div class="form-inline my-2 my-lg-0 ">
+                        <input class="form-control  " type="search" placeholder="Search" aria-label="Searche">
+                        <button class="btn my-2 my-sm-0 find" style="border-radius:30px" type="submit"><i class="fas fa-search fa-lg"></i></button>
+
+                    </div>
+                </div>
+            </nav>
+        </section>
+
+
+
+
+
+
+
+
+        <br />
+
+
+        <%--main containt--%>
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+
+
+
+
+
+        <footer>
+            <div class="card text-center">
+                <div class="card-headFeatured">
+                    <div class="card-body bg-success ">
+                       <H4>
+                        <asp:LinkButton class="p-3 DesignLinkbtn" ID="LinkButton4" runat="server" OnClick="LinkButton4_Click">Admin Login</asp:LinkButton>
+                        <asp:LinkButton class="p-3 DesignLinkbtn" ID="LinkButton5" runat="server" OnClick="LinkButton5_Click" Visible="False">Book-Manage</asp:LinkButton>
+                        <asp:LinkButton class="p-3 DesignLinkbtn" ID="LinkButton6" runat="server" OnClick="LinkButton6_Click" Visible="False">User-Manage</asp:LinkButton>
+</H4>
+                        <br />
+                        <div class="card-body bg-light">
+                            <div class="row">
+                            <div class="col-3">
+                                <h3>COMPANY</h3>
+                                <hr style="border:1px solid orange;" />
+                                <asp:LinkButton ID="LinkButton15" runat="server">About Us</asp:LinkButton><br />
+                                 <asp:LinkButton ID="LinkButton16" runat="server">Publisher Partnership</asp:LinkButton><br />
+                                 <asp:LinkButton ID="LinkButton17" runat="server">Privacy Policy</asp:LinkButton><br />
+                                 <asp:LinkButton ID="LinkButton18" runat="server">Disclaimer</asp:LinkButton><br />
+
+                            </div>
+
+                             <div class="col-3">
+                                 <h3>COMPANY</h3>
+                                 <hr style="border:1px solid green;"/>
+                                  <asp:LinkButton ID="LinkButton19" runat="server">My Orders</asp:LinkButton><br />
+                                  <asp:LinkButton ID="LinkButton20" runat="server">My Addresses</asp:LinkButton><br />
+                                  <asp:LinkButton ID="LinkButton21" runat="server">My Personal Info</asp:LinkButton><br />
+
+                            </div>
+
+                             <div class="col-3">
+                                  <h3>SUPPORT</h3>
+                                 <hr style="border:1px solid red;"/>
+                                  <asp:LinkButton ID="LinkButton22" runat="server">Terms of Use</asp:LinkButton><br />
+                                  <asp:LinkButton ID="LinkButton23" runat="server">Contact Us</asp:LinkButton><br />
+
+                            </div>
+
+                             <div class="col-3">
+                                 <h3>Find Books</h3>
+                                 <hr style="border:1px solid blue;"/> 
+                                  <asp:LinkButton ID="LinkButton24" runat="server">Books By Subjects</asp:LinkButton><br />
+                                  <asp:LinkButton ID="LinkButton25" runat="server">Books By Schools</asp:LinkButton><br />
+                                  <asp:LinkButton ID="LinkButton26" runat="server">Books By Publishers</asp:LinkButton><br />
+                                  <asp:LinkButton ID="LinkButton27" runat="server">Books By Authors</asp:LinkButton><br />
+
+                            </div>
+                        </div>
+                        </div>
+                        
+
+
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+
+        <br />
+
+    </form>
+</body>
+</html>

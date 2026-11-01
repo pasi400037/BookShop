@@ -1,0 +1,13 @@
+# Visual Studio and build output
+.vs/
+**/bin/
+**/obj/
+*.user
+*.suo
+*.pdb
+
+# Local environment and secrets
+.env
+*.publishsettings
+*.pubxml.user
+
