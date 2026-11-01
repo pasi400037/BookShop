@@ -41,7 +41,7 @@ public sealed class AccountController(ShopDbContext db, IPasswordHasher<ShopUser
 
     private async Task SignIn(ShopUser user)
     {
-        var claims = new List<Claim> { new(ClaimTypes.NameIdentifier, user.Id.ToString()), new(ClaimTypes.Name, user.UserName), new(ClaimTypes.GivenName, user.FullName), new(ClaimTypes.Role, user.Role) };
+        var claims = new List<Claim> { new(ClaimTypes.NameIdentifier, user.Id.ToString()), new(ClaimTypes.Name, user.UserName), new(ClaimTypes.GivenName, user.FullName), new(ClaimTypes.Email, user.Email), new(ClaimTypes.Role, user.Role) };
         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme)));
     }
 }

@@ -63,7 +63,8 @@ public sealed class CartController(ShopDbContext db) : Controller
         var key = Environment.GetEnvironmentVariable("PayU__Key"); var salt = Environment.GetEnvironmentVariable("PayU__Salt");
         if (string.IsNullOrWhiteSpace(key) || string.IsNullOrWhiteSpace(salt)) return RedirectToAction(nameof(Confirmation), new { id });
         var baseUrl = Environment.GetEnvironmentVariable("PayU__PublicBaseUrl") ?? $"{Request.Scheme}://{Request.Host}";
-        var data = new PayUService(key, salt, bool.TryParse(Environment.GetEnvironmentVariable("PayU__IsProduction"), out var prod) && prod).Build(order, User.Identity!.Name!, baseUrl);
+        var email = User.FindFirstValue(ClaimTypes.Email) ?? "";
+        var data = new PayUService(key, salt, bool.TryParse(Environment.GetEnvironmentVariable("PayU__IsProduction"), out var prod) && prod).Build(order, email, baseUrl);
         return View("PayUPost", data);
     }
     [HttpPost("/cart/payu-return"), IgnoreAntiforgeryToken] public async Task<IActionResult> PayUReturn()
