@@ -32,13 +32,12 @@ To create the first administrator, set `BOOKSHOP_SETUP_KEY` to a private one-tim
 Build/publish the app, then build the image from the repository root:
 
 ```sh
-dotnet publish src/BookShop.Web/BookShop.Web.csproj -c Release -o src/BookShop.Web/bin/Release/net10.0/publish
 docker build -t lapcare-bookshop .
 docker run --name lapcare-bookshop -p 8080:8080 -v bookshop-data:/app/data \
   -e BOOKSHOP_SETUP_KEY='choose-a-long-one-time-value' lapcare-bookshop
 ```
 
-The container listens on port `8080`. Mount a persistent volume at `/app/data`; it holds the SQLite database and admin-uploaded covers. The container expects a trusted HTTPS reverse proxy in front of it and honors its forwarded scheme. Do not expose the container directly to the public internet when trusting forwarded headers. Use one app instance with SQLite. For multiple instances, replace SQLite with a shared database and object storage before scaling out.
+The container builds the app from source and listens on port `8080`. Mount a persistent volume at `/app/data`; it holds the SQLite database and admin-uploaded covers. The container expects a trusted HTTPS reverse proxy in front of it and honors its forwarded scheme. Do not expose the container directly to the public internet when trusting forwarded headers. Use one app instance with SQLite. For multiple instances, replace SQLite with a shared database and object storage before scaling out.
 
 ### Optional PayU settings
 
