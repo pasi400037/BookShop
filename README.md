@@ -15,7 +15,7 @@ Keep this source in GitHub if you want version control. To run the full applicat
 - Microsoft SQL Server with the application's expected `BookStore` schema and data.
 - A valid database connection string configured on the server.
 
-The archive contains no SQL schema, database backup, or database data. The connection strings in `BookShop/Web.config` point to a machine-specific SQL Express instance (`DESKTOP-J2OL5QI\SQLEXPRESS`), which will not be reachable from a public host. Replace them for your deployment and keep production credentials out of source control. Configure the host's secret/configuration store where supported.
+The archive contains no SQL schema, database backup, or database data. The local connection strings in `BookShop/Web.config` use `localhost\SQLEXPRESS`; change them for your deployment and keep production credentials out of source control. Configure the host's secret/configuration store where supported.
 
 ## Open locally
 
@@ -32,5 +32,5 @@ The archive contains no SQL schema, database backup, or database data. The conne
 
 ## Repository hygiene
 
-Generated Visual Studio state and build output are excluded. Application source, web pages, static assets, and book images are retained. No GitHub repository was created or uploaded because this workspace does not have a connected GitHub publishing action or account authorization available.
+Generated Visual Studio state and build output are excluded. Application source, web pages, static assets, the Font Awesome icon library, and book images are retained. The repository archive is distributed as `BookShop-GitHub-Ready.zip`.
 
